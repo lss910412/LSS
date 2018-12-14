@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="managerNameSpace">
+
+ 	<select id="select" 
+				 	parameterType="com.biz.board.ManagerVO" 
+				 	resultType="com.biz.board.ManagerVO">
+ 			select *
+ 			from board_manager
+ 	</select>
+
+ 	<select id="selectBoardInfo" 
+				 	parameterType="com.biz.board.ManagerVO" 
+				 	resultType="com.biz.board.ManagerVO">
+ 			select *
+ 			from board_manager
+ 			where code=#{code}
+ 	</select>
+ 	
+ 	
+<select id="boardList" 
+				 	parameterType="com.biz.board.BoardVO" 
+				 	resultType="com.biz.board.BoardVO">
+ 			select *
+ 			from board
+ 			where code=#{code}
+ 	</select>
+
+
+
+
+
+
+ 	<insert id="insert" 
+ 	parameterType="com.biz.board.ManagerVO">
+ 		insert into board_manager(bseq,btitle,attach_yn,board_list_url,board_insert_url,bgcolor,code)
+		values (board_manager_seq.nextval, #{btitle},#{attach_yn},#{board_list_url},#{board_insert_url},#{bgcolor},#{code})
+ 	</insert>
+ 	
+  
+</mapper>	
